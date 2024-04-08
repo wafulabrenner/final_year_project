@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SWMS | Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body id="page-top" class="landing-page no-skin-config">
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">SWMS</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#page-top">Home</a></li>
+                        <li><a class="page-scroll" href="#schedule">Schedule</a></li>
+                        <li><a class="page-scroll" href="#issues">Have Issues ?</a></li>
+                        <li><a href="./role_selection.html"><i class="fa fa-user-o"></i>My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Smart<br/>
+                        Waste Management<br/>
+                        System
+                    </h1>
+                    <p>Find sustainable waste services online.</p>
+                    <p>
+                    <a class="btn btn-lg btn-primary" href="#schedule" role="button">View Pickup Schedule</a>
+                    </p>
+                </div>
+
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"></div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>Missed a Curbside Pickup ? <br/> Report to us.</h1>
+                    <p><a class="btn btn-lg btn-primary" href="./role_selection.html" role="button">Report Missed Pickups</a></p>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+<section  id="schedule" class="container features">
+ 
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Pickup Schedule</h1>
+        </div>
+    </div>
+    <div class="row features-block">
+    <div class="col-lg-6 features-text wow fadeInLeft">
+    <small>CALENDAR</small>
+    <div class="ibox-content">
+        <div class="row">
+        <div class="col-sm-6 b-r">
+    <form role="form" method="POST" id="scheduleForm">
+        <div class="form-group">
+            <h2>Collection Schedule </h2>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" name="address" id="address" placeholder="Please type your home address" class="form-control" required="">
+        </div>
+    </form>
+    <div id="scheduleResult" style="display: none;">
+        <h3>Schedule</h3>
+        <p id="scheduleText"></p>
+    </div>
+    <div id="noResult" style="display: none;">
+        <p>No schedule found for the address.</p>
+    </div>
+    <div id="loading" style="display: none;">
+        <p>Loading...</p>
+    </div>
+</div>
+
+            <div class="col-sm-6">
+                <h4>Missed a pickup?</h4>
+                <p>You can sign in to report here:</p>
+                <p class="text-center">
+                    <a href="./role_selection.html"><i class="fa fa-sign-in big-icon"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="form-group" id="scheduleResult" style="display: none;">
+            <h3>Schedule</h3>
+            <p id="scheduleText"></p>
+        </div>
+        <div class="form-group" id="noResult" style="display: none;">
+            <p>No schedule found for the address.</p>
+        </div>
+        <div class="form-group" id="loading" style="display: none;">
+            <p>Loading...</p>
+        </div>
+    </div>
+</div>
+        
+        <div class="col-lg-6 text-right wow fadeInRight">
+            <img src="img/landing/perspective.png" alt="dashboard" class="img-responsive pull-right">
+        </div>
+    </div>
+</section>
+
+<section id="issues" class="gray-section team">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Have issues ?</h1>
+                <p>Report Waste Management Issues.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 wow fadeInLeft">
+                <div class="team-member">
+                    <a href="./role_selection.html"><i class="fa fa-sign-in big-icon"></i></a>
+                    <h4><span class="navy">Step</span> One</h4>
+                    <p>Create Account or Login.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member wow zoomIn">
+                    <a href="#schedule"><i class="fa fa-calendar big-icon"></i></a>
+                    <h4><span class="navy">Step</span> Two</h4>
+                    <p>View Pickup Schedule.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow fadeInRight">
+                <div class="team-member">
+                    <a href="./role_selection.html"><i class="fa fa-truck big-icon"></i></a>
+                    <h4><span class="navy">Step</span> Three</h4>
+                    <p>Report Missed Pickups.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p>Having trouble on how to use the system?. Follow these three simple steps.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Features of the system.</h1>
+                <p>Find sustainable waste services online. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 features-text">
+                <small>SWMS</small>
+                <h2>Report Missed Pickups </h2>
+                <i class="fa fa-truck big-icon pull-right"></i>
+                <p>Report any missed garbage collection pickups and request a re-collection.</p>
+            </div>
+            <div class="col-lg-5 features-text">
+                <small>SWMS</small>
+                <h2>View Collection Schedules </h2>
+                <i class="fa fa-calendar big-icon pull-right"></i>
+                <p>Easily access your collection schedule for different waste types in your area.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 features-text">
+                <small>SWMS</small>
+                <h2>Report Waste Management Issues </h2>
+                <i class="fa fa-trash big-icon pull-right"></i>
+                <p>Report any problems or concerns related to waste management services.</p>
+            </div>
+            <div class="col-lg-5 features-text">
+                <small>SWMS</small>
+                <h2>Submit Feedback</h2>
+                <i class="fa fa-pencil-square-o big-icon pull-right"></i>
+                <p>Not finding services to your expectations? Submit your feedback. Your opinion matters.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="gray-section contact">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Contact Us</h1>
+
+            </div>
+        </div>
+        <div class="row m-b-lg">
+            <div class="col-lg-3 col-lg-offset-3">
+                <address>
+                    <strong><span class="navy">Smart Waste Management System.</span></strong><br/>
+                    Makerere University<br/>
+                    Kampala, Uganda<br/>
+                    <abbr title="Phone">Phone :</abbr> +(256) 777-777777
+                </address>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-color">
+                    Final Year Project.
+
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p><strong>&copy; 2024 Smart Waste Management System</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/wow/wow.min.js"></script>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+        $('#address').on('input', function () {
+            var address = $(this).val();
+            if (address.trim() !== '') {
+                fetchSchedule(address);
+            }
+        });
+
+        function fetchSchedule(address) {
+            $('#loading').show();
+            $.ajax({
+                url: './fetch_schedule_home.php', // Path to your PHP script that fetches the schedule
+                method: 'POST',
+                data: { address: address },
+                success: function (response) {
+                    $('#loading').hide();
+                    if (response.trim() !== '') {
+                        $('#scheduleText').html(response);
+                        $('#scheduleResult').show();
+                        $('#noResult').hide();
+                    } else {
+                        $('#scheduleResult').hide();
+                        $('#noResult').show();
+                    }
+                },
+                error: function () {
+                    $('#loading').hide();
+                    $('#scheduleResult').hide();
+                    $('#noResult').show();
+                }
+            });
+        }
+  
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function(event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            $("#navbar").collapse('hide');
+        });
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 200;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+</script>
+
+</body>
+</html>

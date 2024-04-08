@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>SWMS | Role Selection</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+    
+
+</head>
+
+<body class="gray-bg">
+  <div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name"><a href="./index.html"><img src="./img/logo.png" alt="Awesome Logo" title=""></a></h1>
+        </div>
+        <h3>Welcome to SWMS</h3>
+      
+        <p>Select role to continue.</p>
+        <div class="row">
+            <div class="col-sm-12">
+                <form role="form" action="" method="POST" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <select class="form-control" name="role" id="roleSelect" onchange="toggleFields()">
+                            <option value="">Select Role</option>
+                            <option value="resident">Resident</option>
+                            <option value="waste_personnel">Waste Personnel</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width m-b" id="nextButton" disabled>Next</button>
+                </form>
+            </div>
+        <p class="m-t"> <small>Smart Waste Management System</small> </p>
+    </div>
+</div>
+
+
+ 
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
+
+
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
+
+    <script>
+       function toggleFields() {
+        var selectedRole = document.getElementById("roleSelect").value;
+        var nextButton = document.getElementById("nextButton");
+        if (selectedRole !== "") {
+            nextButton.disabled = false;
+        } else {
+            nextButton.disabled = true;
+        }
+    }
+
+    function validateForm() {
+        var selectedRole = document.getElementById("roleSelect").value;
+        if (selectedRole === "resident") {
+            window.location.href = "residents/login.php";
+        } else if (selectedRole === "waste_personnel") {
+            window.location.href = "waste_personnel/login.php";
+        }
+        return false;
+    }
+        
+        $(document).ready(function() {
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-center",
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.success('Please select your role ');
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>
